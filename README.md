@@ -62,8 +62,8 @@ A summary of the access policies in placed is in the table below.
 |----------|---------------------|----------------------|
 | Jump-Box-VM | Yes             | 75.3.88.234   |
 | WEB-3 (ELK VM)         |No    |  10.0.0.4                    |
-| WEB-1 VM         |NO          | 10.0.0.4                     
-| WEB-2 VM         |NO          | 10.0.0.4                  |
+| WEB-1 VM         |No          | 10.0.0.4                     
+| WEB-2 VM         |No         | 10.0.0.4                  |
 
 
 
