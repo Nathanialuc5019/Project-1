@@ -37,7 +37,7 @@ The configuration details of each machine is found below.
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
 | Jump-Box-VM | Gateway  |52.249.198.163 (Public) / 10.0.0.5 (Private) | Linux |
-| WEB-3 (ELK VM)   | Server   |13.66.210.220 (Public) / 10.2.0.4 (Private | Linux |
+| WEB-3 (ELK VM)   | Server   |13.66.210.220 (Public) / 10.2.0.4 (Private) | Linux |
 | WEB-1 VM     | Server   |10.0.0.5 (Private)   | Linux            |
 | WEB-2 VM     | Server   |10.0.0.9 (Private)            | Linux            |
 
