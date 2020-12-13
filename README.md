@@ -1,6 +1,7 @@
 The files in this repository were used to configure the network depicted below.
 
-TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Network%20security%20diagram%20-%20Azure%20Resource%20Group.pdf">Azure Resource Group Network Diagram
+  
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/install-elk.yml">Elk Instalation Playbook</a>
