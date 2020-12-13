@@ -4,7 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Network%20security%20diagram%20-%20Azure%20Resource%20Group.pdf">Azure Resource Group Network Diagram</a>
   
-*These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Project 1 Red-Team Network Diagram file may be used to install only certain pieces of it, such as Filebeat
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Project 1 Red-Team Network Diagram file may be used to install only certain pieces of it, such as Filebeat
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/install-elk.yml">Elk Instalation Playbook</a>
 
@@ -24,8 +24,6 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly available, in addition to restricting inbound traffic to the network.
 
 The load balancer aids in security by offloading traffic from a corporate server to a public cloud provider. Integrating an ELK (Elasticsearch, Logstash, and Kibana) server allows users to easily monitor the vulnerable VMs for changes to the file names and watch system metrics.
-
-What is the advantage of a jump box?
 
 Filebeat monitors the logs in the specified locations. It detects changes to the filesystem. It collects logs and forwards them to Elastisearch or Logstash for indexing
 
@@ -64,7 +62,6 @@ A summary of the access policies in placed is in the table below.
 | WEB-2 VM         |No         | 10.0.0.4                  |
 
 
-
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because using an automated process can save time, help to recude error and bugs in the deployement and susing infrastructre as code isure uniformaty of the imgages and help to keep images to the machines as a sigle script. 
@@ -76,7 +73,6 @@ The playbook implements the following tasks:
 - Install docker on all network machines so they will be able to recieve and install containers
 - Ansible is installed on the Jump Box VM to distribute containers to other VMs on the network
 - Ansible playbooks are used to install the ELK stack container on the ELK server and a 'Beats' containers on the Web servers
-
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -100,7 +96,6 @@ These Beats allow us to collect the following information from each machine:
 - Filebeat - Filebeat detects changes to the filesystem. We are using this to monitor our Web Log data.
 - Metricbeat - Metricbeat detects changes in system metrics, such as CPU usage. We use it to detect SSH login attempts, failed sudo escalations, and CPU/RAM statistics.
 
-
 ### Using the Playbook
 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned,
@@ -113,7 +108,6 @@ FILEBEAT
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/files/filebeat-config.yml">Filebeat Configuration</a>
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Images_Elk%20Stack%20Deployment%20Project/filebeat.screenshot.PNG">Filebeat Syslog Dashboard</a>
-
 
 - Copy the filebeat-configuration.yml file to /etc/ansible directory.
 - Update the filebeat-configuration.yml file to include the ELK private IP.
