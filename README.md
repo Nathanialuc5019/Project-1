@@ -114,6 +114,9 @@ FILEBEAT
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/files/filebeat-config.yml">Filebeat Configuration</a>
 
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Images_Elk%20Stack%20Deployment%20Project/filebeat.screenshot.PNG">Filebeat Syslog Dashboard</a>
+
+
 - Copy the filebeat-configuration.yml file to /etc/ansible directory.
 - Update the filebeat-configuration.yml file to include the ELK private IP.
 - Run the playbook, and navigate to http://13.66.210.220/ (ELK-VM public IP) to check that the installation worked as expected
@@ -124,6 +127,7 @@ METRICBEAT
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/metrics/metricbeat-config.yml">Metribeat Configuration</a>
 
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Images_Elk%20Stack%20Deployment%20Project/metricbeat.screenshot.PNG">Host Overview Dashboard</a>
 
 - Copy the metricbeat-configuration.yml file to /etc/ansible directory.
 - Update the metricbeat-configuration.yml file to include the ELK private IP.
