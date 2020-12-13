@@ -8,11 +8,6 @@ The files in this repository were used to configure the network depicted below.
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/install-elk.yml">Elk Instalation Playbook</a>
 
-<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/filebeat-playbook2.yml">Filebeat Playbook</a>
-
-<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/files/filebeat-config.yml">Filebeat Configuration</a>
-
-
 
 ### This ReadMe document contains the following details:
 - Description of the Azure Topology
@@ -26,15 +21,18 @@ The files in this repository were used to configure the network depicted below.
 ### Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting inbound traffic to the network.
 
+The load balancer aids in security by offloading traffic from a corporate server to a public cloud provider. Integrating an ELK (Elasticsearch, Logstash, and Kibana) server allows users to easily monitor the vulnerable VMs for changes to the file names and watch system metrics.
 
-Discuss: What aspect of security do what is load balancers and what does it  protect? What is the advantage of a jump box?_
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+What is the advantage of a jump box?
 
+Filebeat monitors the logs in the specified locations. It detects changes to the filesystem. It collects logs and forwards them to Elastisearch or Logstash for indexing
 
-TODO: What does Filebeat watch for?_
-TODO: What does Metricbeat record?_
+Metricbeat detects changes in system metrics such as CPU usage. We use it to detect SSH login attempts
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the netwok and system logs.
+
 
 The configuration details of each machine is found below.
 
@@ -69,17 +67,15 @@ A summary of the access policies in placed is in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because that and automated process can same time, help to recude error and bugs in the deployement and susing infrastructre as code help to keep images to the machines as a sigle script. 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because using an automated process can save time, help to recude error and bugs in the deployement and susing infrastructre as code isure uniformaty of the imgages and help to keep images to the machines as a sigle script. 
 
 One main advantage to of 
 
 The playbook implements the following tasks:
 
-- SSH into the Jump-Box-VM (ssh redadmin@52.249.198.163)
-- Start and then Attached to the ansible docker (sudo docker start frosty_jackson )/(sudo docker attach frosty_jackson)
-- Went to /etc/ansible/roles directory and created the ELK playbook (Elk_Playbook.yml)
-- Ran the Elk_Playbook.yml in that same directory (ansible-playbook Elk_Playbook.yml)
-- SSH into the ELK-VM to verify the server is up and running.
+- Install docker on all network machines so they will be able to recieve and install containers
+- Ansible is installed on the Jump Box VM to distribute containers to other VMs on the network
+- Ansible playbooks are used to install the ELK stack container on the ELK server and a 'Beats' containers on the Web servers
 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -91,11 +87,20 @@ TODO: Update the path with the name of your screenshot of docker ps output](Imag
 ### Target Machines & Beats
 
 This ELK server is configured to monitor the following machines:
-TODO: List the IP addresses of the machines you are monitoring
-We have installed the following Beats on these machines:
-TODO: Specify which Beats you successfully installed
+
+| Name     | IP Addresses |
+|----------|---------------------|
+| WEB-1 VM         | 10.0.0.5  |                   
+| WEB-2 VM           | 10.0.0.9 |
+
+I have installed the following Beats on these machines:
+- Filebeat
+- Metricbeat
+
 These Beats allow us to collect the following information from each machine:
-TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
+
+- Filebeat - Filebeat detects changes to the filesystem. We are using this to monitor our Web Log data.
+- Metricbeat - Metricbeat detects changes in system metrics, such as CPU usage. We use it to detect SSH login attempts, failed sudo escalations, and CPU/RAM statistics.
 
 
 ### Using the Playbook
@@ -104,11 +109,21 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 
 FILEBEAT
+
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/filebeat-playbook2.yml">Filebeat Playbook</a>
+
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/files/filebeat-config.yml">Filebeat Configuration</a>
+
 - Copy the filebeat-configuration.yml file to etc/ansible/roles/files.
 - Update the filebeal-configuration.yml file to include the ELK private IP  in Lines 1106 and 1806
 - Run the playbook, and navigate to http-------- to check that the installation worked as expected.
 
 METRICBEAT
+
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/metricbeat-playbook.yml">Metribeat Playbook</a>
+
+<a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/metrics/metricbeat-config.yml">Metribeat Configuration</a>
+
 - Copy the metricbeat-configuration.yml file to /etc/ansible/roles/files.
 - Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
 - Run the playbook, and navigate to http://13.66.210.220:5601/app/kibana (ELK-VM public IP) to check that the installation worked as expected.
