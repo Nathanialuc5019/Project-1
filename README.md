@@ -18,9 +18,9 @@ The files in this repository were used to configure the network depicted below.
 - Description of the Azure Topology
 - Screen shot of NSG to displays:  Access Policies
 - ELK Configuration
-  -Screen shot / YML Beats in Use
-  -Kibana : Machines Being Monitored
-- How to Use the Ansible Build
+  - Screen shots YML Beats in Use
+  - Screen shots Kibana : Machines Being Monitored
+- Decription on how to Use the Ansible Build
 
 
 ### Description of the Topology
@@ -36,9 +36,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 TODO: What does Filebeat watch for?_
 TODO: What does Metricbeat record?_
 
-The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
-
+The configuration details of each machine is found below.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -48,22 +46,17 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | WEB-2 VM     | Server   |10.0.0.9 (Private)            | Linux            |
 
 
-
-
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
-
-Only the Jump-Box-VM machine can accept connections from the Internet. 
+The machines on the internal network are not exposed to the public Internet. Only the Jump-Box-VM machine can accept connections from the Internet. 
 Access to this machine is only allowed from the following IP addresses:
   75.3.88.234 (LocalHost IPaddress)
 
 *Machines within the network can only be accessed by the Jump-Box-VM.
 
-The only machine allowed to access the WEB-3 ELK VM is the Jump-Box-VM from 10.0.0.4 Private IP
+The only machine allowed to access the WEB-3 (ELK VM) is the Jump-Box-VM from 10.0.0.4 Private IP
 
-
-A summary of the access policies in place can be found in the table below.
+A summary of the access policies in placed is in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
@@ -82,11 +75,11 @@ One main advantage to of
 
 The playbook implements the following tasks:
 
-- First I, SSH into the Jump-Box-Provisioner (ssh redadmin@40.117.224.154)
-- Start/Attached to the ansible docker (sudo docker start tender_morse)/(sudo docker attach tender_morse)
+- SSH into the Jump-Box-VM (ssh redadmin@52.249.198.163)
+- Start and then Attached to the ansible docker (sudo docker start frosty_jackson )/(sudo docker attach frosty_jackson)
 - Went to /etc/ansible/roles directory and created the ELK playbook (Elk_Playbook.yml)
 - Ran the Elk_Playbook.yml in that same directory (ansible-playbook Elk_Playbook.yml)
-- Lastly, I SSH into the ELK-VM to verify the server is up and running.
+- SSH into the ELK-VM to verify the server is up and running.
 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -118,7 +111,7 @@ FILEBEAT
 METRICBEAT
 - Copy the metricbeat-configuration.yml file to /etc/ansible/roles/files.
 - Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
-- Run the playbook, and navigate to http://20.49.3.56:5601/ (ELK-VM public IP) to check that the installation worked as expected.
+- Run the playbook, and navigate to http://13.66.210.220:5601/app/kibana (ELK-VM public IP) to check that the installation worked as expected.
 
 
 TODO: Answer the following questions to fill in the blanks:_
