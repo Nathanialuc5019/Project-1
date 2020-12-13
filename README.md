@@ -114,9 +114,9 @@ FILEBEAT
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/files/filebeat-config.yml">Filebeat Configuration</a>
 
-- Copy the filebeat-configuration.yml file to etc/ansible/roles/files.
-- Update the filebeal-configuration.yml file to include the ELK private IP  in Lines 1106 and 1806
-- Run the playbook, and navigate to http-------- to check that the installation worked as expected.
+- Copy the filebeat-configuration.yml file to /etc/ansible directory.
+- Update the filebeat-configuration.yml file to include the ELK private IP.
+- Run the playbook, and navigate to http://13.66.210.220/ (ELK-VM public IP) to check that the installation worked as expected
 
 METRICBEAT
 
@@ -124,14 +124,12 @@ METRICBEAT
 
 <a href="https://github.com/Nathanialuc5019/Project-1/blob/main/Ansible/ansible/metrics/metricbeat-config.yml">Metribeat Configuration</a>
 
-- Copy the metricbeat-configuration.yml file to /etc/ansible/roles/files.
-- Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
-- Run the playbook, and navigate to http://13.66.210.220:5601/app/kibana (ELK-VM public IP) to check that the installation worked as expected.
 
-
-TODO: Answer the following questions to fill in the blanks:_
-Which file is the playbook? Where do you copy it?_
-Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-Which URL do you navigate to in order to check that the ELK server is running?
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-roject-1
+- Copy the metricbeat-configuration.yml file to /etc/ansible directory.
+- Update the metricbeat-configuration.yml file to include the ELK private IP.
+- Run the playbook 
+--cd /etc/ansible
+-- ansible-playbook elk-playbook.yml
+-- ansible-playbook filebeat-playbook2.yml
+-- ansible-playbook metricbeat-playbook.yml
+- Navigate to http://13.66.210.220:5601/app/kibana (ELK-VM public IP) to check that the installation worked as expected.
